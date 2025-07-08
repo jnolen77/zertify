@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  LucideHome,
   Book,
   Headphones,
   Mic,
@@ -14,6 +15,7 @@ import { Link } from "react-router-dom";
 import { href } from "react-router";
 
 const navItems = [
+  { label: "Home", icon: LucideHome, href: "/" },
   { label: "Reading", icon: Book, href: "/levels/a1" },
   { label: "Listening", icon: Headphones, href: "/levels/a1" },
   { label: "Speaking", icon: Mic, href: "/levels/a1" },
