@@ -1,15 +1,25 @@
-export function Main() {
+import Header from "~/components/layout/header";
+// import Footer from "~/components/layout/footer";
+import Footer from "../components/layout/footer";
+import Sidebar from "~/components/layout/sidebar";
+
+import { ReactNode } from "react";
+
+type MainProps = {
+  children: ReactNode;
+};
+
+export function Main({ children }: MainProps) {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
-      <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-        <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
-            <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
-              What&apos;s next?
-            </p>
-          </nav>
+    <>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div className="flex flex-1">
+          <Sidebar />
+          <main className="flex-1 p-6">{children}</main>
         </div>
+        <Footer />
       </div>
-    </main>
+    </>
   );
 }
