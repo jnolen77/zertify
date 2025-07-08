@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "levels/a1",
+        path: "routes/levels/a1",
         element: <A1Page />,
       },
     ],

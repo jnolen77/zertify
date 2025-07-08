@@ -9,7 +9,7 @@ const levels = [
     description:
       "Start from scratch: learn the basics of German grammar, vocabulary, and conversation.",
     modules: "8 modules • Foundations",
-    href: "a1",
+    href: "levels/a1",
     locked: false,
   },
   {
