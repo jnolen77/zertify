@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { ArrowLeft, Play, Volume2 } from "lucide-react";
 import {

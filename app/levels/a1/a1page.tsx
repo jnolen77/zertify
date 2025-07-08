@@ -1,9 +1,7 @@
-"use client";
-
 import { useState } from "react";
 import GermanA1App from "../../routes/german-a1-app";
 import QuestionWordsPage from "../../levels/a1/question-words-page";
-import WasQuestionPage from "../../levels/a1/was-question-page";
+import WasQuestionPage from "./questions/was-question-page";
 import ReadingPage from "../../levels/a1/reading-page";
 import ListeningPage from "../../levels/a1/listening-page";
 import WritingPage from "../../levels/a1/writing-page";
