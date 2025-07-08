@@ -1,4 +1,5 @@
 import { GraduationCap, Star, Sparkle, Gem, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // import { ReactNode } from "react";
 const levels = [
@@ -8,7 +9,7 @@ const levels = [
     description:
       "Start from scratch: learn the basics of German grammar, vocabulary, and conversation.",
     modules: "8 modules • Foundations",
-    href: "levels/a1",
+    href: "a1",
     locked: false,
   },
   {
@@ -107,9 +108,9 @@ export function Main() {
               return locked ? (
                 <div key={name}>{content}</div>
               ) : (
-                <a href={href} key={name} className="no-underline">
+                <Link to={`/${href}`} key={name} className="no-underline">
                   {content}
-                </a>
+                </Link>
               );
             }
           )}
