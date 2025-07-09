@@ -17,26 +17,24 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../components/ui/card";
-import { Button } from "../components/ui/button";
+} from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 import { useNavigate } from "react-router";
 
+type Page =
+  | "question-words"
+  | "reading"
+  | "listening"
+  | "writing"
+  | "verbs"
+  | "nouns";
+
 interface GermanA1AppProps {
-  onNavigate?: (
-    page:
-      | "question-words"
-      | "reading"
-      | "listening"
-      | "writing"
-      | "verbs"
-      | "nouns"
-  ) => "/";
-}
-interface GermanA1AppProps {
-  onBack?: () => "/";
+  onNavigate?: (page: Page) => void;
+  onBack?: () => void;
 }
 
-export default function GermanA1App({ onNavigate, onBack }: GermanA1AppProps) {
+export default function A1Index({ onNavigate, onBack }: GermanA1AppProps) {
   const skillAreas = [
     {
       title: "Reading",

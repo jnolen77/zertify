@@ -1,12 +1,12 @@
 import { useState } from "react";
-import GermanA1App from "../../routes/german-a1-app";
-import QuestionWordsPage from "../../levels/a1/question-words-page";
+import A1Index from "./a1-index";
+import QuestionWordsPage from "./question-words-page";
 import WasQuestionPage from "./questions/was-question-page";
-import ReadingPage from "../../levels/a1/reading-page";
-import ListeningPage from "../../levels/a1/listening-page";
-import WritingPage from "../../levels/a1/writing-page";
-import VerbsPage from "../../levels/a1/verbs-page";
-import NounsPage from "../../levels/a1/nouns-page";
+import ReadingPage from "./reading-page";
+import ListeningPage from "./listening-page";
+import WritingPage from "./writing-page";
+import VerbsPage from "./verbs-page";
+import NounsPage from "./nouns-page";
 
 export default function Page() {
   const [currentPage, setCurrentPage] = useState<
@@ -53,5 +53,5 @@ export default function Page() {
     return <NounsPage onBack={() => setCurrentPage("main")} />;
   }
 
-  return <GermanA1App onNavigate={(page) => setCurrentPage(page)} />;
+  return <A1Index onNavigate={(page) => setCurrentPage(page)} />;
 }
