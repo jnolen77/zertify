@@ -7,20 +7,21 @@ import {
   CardContent,
 } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
-import type { ImageReadingExercise } from "../../../lib/data/a1/imageReadingExercise";
 
-interface ImageReadingExerciseCardProps {
-  exercise: ImageReadingExercise;
-  onClick: (exercise: ImageReadingExercise) => void;
+import type { HeadlineMatchingExercise } from "../exercises/headlineMatchingExercise"; // Make sure the type is exported
+
+interface HeadlineMatchingCardProps {
+  exercise: HeadlineMatchingExercise;
+  onClick: (exercise: HeadlineMatchingExercise) => void;
 }
 
 const cardClass =
   "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1";
 
-export default function ReadingExerciseCard({
+export default function HeadlineMatchingCard({
   exercise,
   onClick,
-}: ImageReadingExerciseCardProps) {
+}: HeadlineMatchingCardProps) {
   return (
     <Card className={cardClass} onClick={() => onClick(exercise)}>
       <CardHeader className="pb-4">
@@ -42,7 +43,7 @@ export default function ReadingExerciseCard({
       <CardContent>
         <div className="flex items-center gap-2 text-sm text-black font-medium">
           <Book className="h-4 w-4" />
-          <span>{exercise.questions.length} Questions • True/False</span>
+          <span>{exercise.textBlocks.length} Questions • Headline Match</span>
         </div>
       </CardContent>
     </Card>

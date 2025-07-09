@@ -11,19 +11,19 @@ import {
   PopoverTrigger,
 } from "../../components/ui/popover";
 
-import wordTranslations from "../../lib/wordTranslations";
-import HeadlineMatchingCard from "../../components/cards/a1/HeadlineMatchingCard";
-import ReadingExerciseCard from "../../components/cards/a1/ReadingExerciseCard";
-import ImageReadingExerciseCard from "../../components/cards/a1/ImageReadingExerciseCard";
-import imageReadingExercise from "../../lib/data/a1/imageReadingExercise";
-import readingExercises from "../../lib/data/a1/readingExercises";
-import headlineMatchingExercises from "../../lib/data/a1/headlineMatchingExercise";
-import type { HeadlineMatchingExercise } from "../../lib/data/a1/headlineMatchingExercise";
-import type { ImageReadingExercise } from "../../lib/data/a1/imageReadingExercise";
+import wordTranslations from "./data/a1WordTranslations";
+import HeadlineMatchingCard from "./cards/HeadlineMatchingCard";
+import ReadingExerciseCard from "./cards/ReadingExerciseCard";
+import ImageReadingExerciseCard from "./cards/ImageReadingExerciseCard";
+import imageReadingExercise from "./exercises/imageReadingExercise";
+import readingExercises from "./exercises/readingExercises";
+import headlineMatchingExercises from "./exercises/headlineMatchingExercise";
+import type { HeadlineMatchingExercise } from "./exercises/headlineMatchingExercise";
+import type { ImageReadingExercise } from "./exercises/imageReadingExercise";
 
-import HeadlineMatchingDialog from "../../components/dialogs/HeadlineMatchingDialog";
-import TrueFalseReadingDialog from "../../components/dialogs/TrueFalseReadingDialog";
-import ImageReadingDialog from "../../components/dialogs/ImageReadingDialog";
+import HeadlineMatchingDialog from "./dialogs/HeadlineMatchingDialog";
+import TrueFalseReadingDialog from "./dialogs/TrueFalseReadingDialog";
+import ImageReadingDialog from "./dialogs/ImageReadingDialog";
 
 interface ReadingPageProps {
   onBack?: () => void;

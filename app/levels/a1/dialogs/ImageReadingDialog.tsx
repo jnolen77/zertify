@@ -4,12 +4,12 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "../../components/ui/dialog";
-import { Badge } from "../../components/ui/badge";
-import { Button } from "../../components/ui/button";
+} from "../../../components/ui/dialog";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
 import { RotateCcw } from "lucide-react";
 import { useEffect, useState } from "react";
-import type { ImageReadingExercise } from "../../lib/data/a1/imageReadingExercise";
+import type { ImageReadingExercise } from "../exercises/imageReadingExercise";
 
 interface Props {
   exercise: ImageReadingExercise | null;
