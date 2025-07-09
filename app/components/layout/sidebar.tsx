@@ -16,17 +16,13 @@ import { href } from "react-router";
 
 const navItems = [
   { label: "Home", icon: LucideHome, href: "/" },
-  { label: "Reading", icon: Book, href: "/levels/a1" },
-  { label: "Listening", icon: Headphones, href: "/levels/a1" },
-  { label: "Speaking", icon: Mic, href: "/levels/a1" },
-  { label: "Writing", icon: PenTool, href: "/levels/a1" },
   { label: "Basics", icon: Abc, href: "/levels/a1" },
   { label: "Verbs", icon: Zap, href: "/levels/a1" },
   { label: "Nouns", icon: Users, href: "/levels/a1" },
   {
     label: "Question Words",
     icon: MessageSquareQuestion,
-    href: "/levels/a1/questions/was-question-page",
+    href: "/levels/a1/question-words-page",
   },
 ];
 
