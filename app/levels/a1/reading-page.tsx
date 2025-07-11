@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ArrowLeft, Book } from "lucide-react";
-
 import { Button } from "../../components/ui/button";
 
 import {
@@ -134,14 +133,19 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
     setShowResults(false);
   };
 
+  // Define a neobrutalist style for card components
+  const exerciseCardClass =
+    "border-2 border-black rounded-none shadow-none transition-all duration-150 bg-[#e0e7ff] hover:bg-[#38bdf8] hover:text-white cursor-pointer";
+  const exerciseCardStyle = { boxShadow: "4px 4px 0 0 #000" };
+
   return (
-    <div className=" p-6">
+    <div className="bg-[#f0f9ff] min-h-screen p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <Button
             onClick={onBack}
-            className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
+            className="button mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold  transition"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to German A1
@@ -175,6 +179,8 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
               key={exercise.id}
               exercise={exercise}
               onClick={openModal}
+              className={exerciseCardClass}
+              style={exerciseCardStyle}
             />
           ))}
         </div>
@@ -187,6 +193,8 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
           <HeadlineMatchingCard
             exercise={headlineMatchingExercises[0]}
             onClick={openHeadlineModal}
+            className={exerciseCardClass}
+            style={exerciseCardStyle}
           />
         </div>
         <div className="text-left mt-4 mb-8">
@@ -196,6 +204,8 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
           <ImageReadingExerciseCard
             exercise={imageReadingExercise[0]}
             onClick={openImageModal}
+            className={exerciseCardClass}
+            style={exerciseCardStyle}
           />
         </div>
 
@@ -208,7 +218,6 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
           renderTextWithTranslations={renderTextWithTranslations}
         />
 
-        {/* Headline Matching Modal remains the same */}
         <HeadlineMatchingDialog
           exercise={selectedHeadlineExercise}
           onClose={() => {
@@ -221,13 +230,7 @@ export default function ReadingPage({ onBack }: ReadingPageProps) {
             setSelectedImageExercise(null);
           }}
         />
-
-        {/* ... you already have it correct above ... */}
       </div>
-
-      {false && userAnswers}
-      {false && headlineAnswers}
-      {false && showResults}
     </div>
   );
 }

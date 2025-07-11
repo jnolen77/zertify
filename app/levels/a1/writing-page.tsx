@@ -37,7 +37,7 @@ interface WritingExercise {
   level: string;
   topic: string;
   description: string;
-  type: "form" | "email"; // Add type field
+  type: "form" | "email";
   formFields?: {
     label: string;
     type: "text" | "textarea";
@@ -50,7 +50,6 @@ interface WritingExercise {
     title: string;
     content: string | { [key: string]: string };
   };
-  // New fields for email exercises
   emailPrompt?: string;
   emailInstructions?: string[];
   requiredElements?: string[];
@@ -62,13 +61,13 @@ export default function WritingPage({ onBack }: WritingPageProps) {
     useState<WritingExercise | null>(null);
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
   const [showResults, setShowResults] = useState(false);
-
   const [emailText, setEmailText] = useState("");
   const [grammarFeedback, setGrammarFeedback] = useState<string[]>([]);
   const [instructionFeedback, setInstructionFeedback] = useState<
     { element: string; found: boolean; feedback: string }[]
   >([]);
 
+  // --- FULL ARRAY ---
   const writingExercises: WritingExercise[] = [
     {
       id: 1,
@@ -720,15 +719,15 @@ export default function WritingPage({ onBack }: WritingPageProps) {
         "Vergessen Sie nicht Ihren Namen",
       ],
       requiredElements: [
-        "greeting", // Begrüßung
-        "birthday_mention", // Geburtstag erwähnen
-        "invitation", // Einladung
-        "date", // Datum
-        "time", // Uhrzeit
-        "location", // Ort
-        "question", // Frage ob er kommen kann
-        "closing", // Abschluss
-        "name", // Name
+        "greeting",
+        "birthday_mention",
+        "invitation",
+        "date",
+        "time",
+        "location",
+        "question",
+        "closing",
+        "name",
       ],
       sampleEmail: `Lieber Max,
 
@@ -744,6 +743,8 @@ Viele Grüße
 Anna`,
     },
   ];
+
+  // ...[REMAINDER OF THE COMPONENT STAYS THE SAME, ONLY STYLING HAS BEEN UPDATED]...
 
   const openModal = (exercise: WritingExercise) => {
     setSelectedExercise(exercise);
@@ -982,23 +983,6 @@ Anna`,
     setShowResults(false);
   };
 
-  // const getTopicColor = (topic: string) => {
-  //   const colors: { [key: string]: string } = {
-  //     "Persönliche Daten": "bg-blue-50 text-blue-700 border border-blue-200",
-  //     Reisen: "bg-green-50 text-green-700 border border-green-200",
-  //     Arbeit: "bg-purple-50 text-purple-700 border border-purple-200",
-  //     Gesundheit: "bg-red-50 text-red-700 border border-red-200",
-  //     Finanzen: "bg-yellow-50 text-yellow-700 border border-yellow-200",
-  //     Bildung: "bg-indigo-50 text-indigo-700 border border-indigo-200",
-  //     Wohnen: "bg-cyan-50 text-cyan-700 border border-cyan-200",
-  //     Freizeit: "bg-pink-50 text-pink-700 border border-pink-200",
-  //     Kommunikation: "bg-teal-50 text-teal-700 border border-teal-200",
-  //   };
-  //   return (
-  //     colors[topic] || "bg-slate-50 text-slate-700 border border-slate-200"
-  //   );
-  // };
-
   const getCorrectAnswers = () => {
     if (!selectedExercise || !selectedExercise.formFields) return 0;
     const blankFields = selectedExercise.formFields.filter(
@@ -1021,20 +1005,20 @@ Anna`,
     );
   };
   const getTopicColor = () =>
-    "border-2 border-black bg-[#facc15] text-black uppercase";
+    "border-2 border-black bg-[#facc15] text-black uppercase font-bold rounded-none";
 
   // Neobrutalist card style
   const cardClass =
-    "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1";
+    "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1 rounded-none";
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="bg-[#f0f9ff] min-h-screen p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <Button
             onClick={onBack}
-            className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
+            className="button mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold transition"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to German A1
@@ -1061,18 +1045,21 @@ Anna`,
               key={exercise.id}
               className={cardClass}
               onClick={() => openModal(exercise)}
+              style={{ minHeight: "220px", boxShadow: "4px 4px 0 0 #000" }}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge className="border-2 border-black text-black bg-white uppercase">
+                  <Badge className="border-2 border-black text-black bg-white uppercase font-bold rounded-none">
                     {exercise.level}
                   </Badge>
-                  <Badge className={getTopicColor()}>{exercise.topic}</Badge>
+                  <Badge className={getTopicColor()}>
+                    {exercise.topic}
+                  </Badge>
                 </div>
-                <CardTitle className="text-xl font-extrabold text-black">
+                <CardTitle className="text-xl font-extrabold text-black uppercase">
                   {exercise.title}
                 </CardTitle>
-                <CardDescription className="text-black text-base">
+                <CardDescription className="text-black text-base font-bold uppercase">
                   {exercise.description}
                 </CardDescription>
               </CardHeader>
@@ -1097,14 +1084,14 @@ Anna`,
                 {/* Header */}
                 <DialogHeader className="mb-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <Badge className="border-2 border-black bg-white text-black uppercase">
+                    <Badge className="border-2 border-black bg-white text-black uppercase font-bold rounded-none">
                       {selectedExercise.level}
                     </Badge>
                     <Badge className={getTopicColor()}>
                       {selectedExercise.topic}
                     </Badge>
                   </div>
-                  <DialogTitle className="text-3xl font-extrabold text-black">
+                  <DialogTitle className="text-3xl font-extrabold text-black uppercase">
                     {selectedExercise.title}
                   </DialogTitle>
                   <DialogDescription className="text-lg text-black">
@@ -1207,7 +1194,7 @@ Anna`,
                     </div>
                     {/* Right: Reference */}
                     <div>
-                      <div className="bg-[#fef9c3] border-2 border-black p-5 mb-5">
+                      <div className="bg-[#fef9c3] border-2 border-black p-5 mb-5 rounded-none">
                         <h3 className="text-lg font-bold text-black mb-4 flex items-center gap-2">
                           <Info className="h-5 w-5 text-black" />
                           {selectedExercise.referenceInfo?.title}
@@ -1225,7 +1212,7 @@ Anna`,
                               ).map(([key, value], i) => (
                                 <div
                                   key={i}
-                                  className="bg-white border-2 border-black p-3 mb-1"
+                                  className="bg-white border-2 border-black p-3 mb-1 rounded-none"
                                 >
                                   <div className="font-bold text-black text-base mb-1">
                                     {key}:
@@ -1238,7 +1225,7 @@ Anna`,
                           </div>
                         )}
                       </div>
-                      <div className="bg-white border-2 border-black p-4">
+                      <div className="bg-white border-2 border-black p-4 rounded-none">
                         <h4 className="font-bold text-black mb-2 uppercase">
                           Instructions
                         </h4>
@@ -1265,7 +1252,7 @@ Anna`,
                         <PenTool className="h-5 w-5" />
                         E-Mail schreiben
                       </h3>
-                      <div className="mb-4 p-4 bg-[#fef9c3] border-2 border-black">
+                      <div className="mb-4 p-4 bg-[#fef9c3] border-2 border-black rounded-none">
                         <p className="text-black font-bold">
                           {selectedExercise.emailPrompt}
                         </p>
@@ -1288,7 +1275,7 @@ Anna`,
                       {showResults && (
                         <div className="space-y-4 mt-6">
                           {/* Instruction Feedback */}
-                          <div className="bg-white border-2 border-black p-4">
+                          <div className="bg-white border-2 border-black p-4 rounded-none">
                             <h4 className="font-bold text-black mb-2 uppercase">
                               Anweisungen befolgt:
                             </h4>
@@ -1316,12 +1303,12 @@ Anna`,
                             </div>
                           </div>
                           {/* Grammar Feedback */}
-                          <div className="bg-white border-2 border-black p-4">
+                          <div className="bg-white border-2 border-black p-4 rounded-none">
                             <h4 className="font-bold text-black mb-2 uppercase">
                               Grammatik-Feedback:
                             </h4>
                             {grammarFeedback.length === 0 ? (
-                              <div className="p-3 bg-green-100 border-2 border-green-600 text-green-800 font-bold">
+                              <div className="p-3 bg-green-100 border-2 border-green-600 text-green-800 font-bold rounded-none">
                                 ✓ Keine größeren Grammatikfehler gefunden!
                               </div>
                             ) : (
@@ -1329,7 +1316,7 @@ Anna`,
                                 {grammarFeedback.map((fb, i) => (
                                   <div
                                     key={i}
-                                    className="p-3 bg-yellow-100 border-2 border-yellow-500 text-yellow-900 font-bold"
+                                    className="p-3 bg-yellow-100 border-2 border-yellow-500 text-yellow-900 font-bold rounded-none"
                                   >
                                     {fb}
                                   </div>
@@ -1342,7 +1329,7 @@ Anna`,
                     </div>
                     {/* Right: Instructions and Sample */}
                     <div>
-                      <div className="bg-[#fef9c3] border-2 border-black p-5 mb-5">
+                      <div className="bg-[#fef9c3] border-2 border-black p-5 mb-5 rounded-none">
                         <h3 className="text-lg font-bold text-black mb-4 flex items-center gap-2">
                           <Info className="h-5 w-5 text-black" />
                           Anweisungen
@@ -1360,11 +1347,11 @@ Anna`,
                           )}
                         </div>
                       </div>
-                      <div className="bg-white border-2 border-black p-4">
+                      <div className="bg-white border-2 border-black p-4 rounded-none">
                         <h4 className="font-bold text-black mb-2 uppercase">
                           Beispiel E-Mail:
                         </h4>
-                        <div className="bg-[#fef9c3] border-2 border-black p-3 text-black leading-relaxed whitespace-pre-line font-mono">
+                        <div className="bg-[#fef9c3] border-2 border-black p-3 text-black leading-relaxed whitespace-pre-line font-mono rounded-none">
                           {selectedExercise.sampleEmail}
                         </div>
                         <div className="mt-2 text-xs text-black font-mono">
@@ -1417,7 +1404,7 @@ Anna`,
                   )}
                   <Button
                     onClick={closeModal}
-                    className="border-2 border-black text-black bg-white rounded-none"
+                    className="button border-2 border-black text-black bg-white rounded-none"
                   >
                     Close
                   </Button>

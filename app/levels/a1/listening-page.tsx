@@ -1,3 +1,4 @@
+
 import { useState, useRef } from "react";
 import {
   ArrowLeft,
@@ -53,6 +54,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
   const [showTranscript, setShowTranscript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
+ 
   const listeningExercises: ListeningExercise[] = [
     {
       id: 1,
@@ -237,11 +239,9 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
     setShowResults(false);
   };
 
-  // Match ReadingPage badge color
-  const getTopicColor = (topic: string) => {
-    // Simple: always yellow, or you can expand as needed
-    return "border-2 border-black bg-[#facc15] text-black uppercase";
-  };
+  // Pastel badge
+  const getTopicColor = (topic: string) =>
+    "border-2 border-black bg-[#facc15] text-black uppercase";
 
   const correctAnswers = selectedExercise
     ? userAnswers.filter(
@@ -249,17 +249,19 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
       ).length
     : 0;
 
+  // Card & modal style for neobrutalist look
   const cardClass =
-    "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1";
+    "cursor-pointer border-2 border-black rounded-none shadow-none transition-all duration-150 hover:bg-[#38bdf8] hover:text-white";
+  const cardStyle = { minHeight: "220px", boxShadow: "4px 4px 0 0 #000" };
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="bg-[#f0f9ff] min-h-screen p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
           <Button
             onClick={onBack}
-            className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
+            className="button mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold  transition"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to German A1
@@ -274,8 +276,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
               </h1>
             </div>
             <p className="text-lg text-black font-medium max-w-3xl mx-auto">
-              Improve your German listening comprehension with these A1 level
-              audio exercises.
+              Improve your German listening comprehension with these A1 level audio exercises.
             </p>
           </div>
         </div>
@@ -284,22 +285,23 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
           {listeningExercises.map((exercise) => (
             <Card
               key={exercise.id}
-              className={cardClass}
+              className={`${cardClass} bg-[#e0e7ff]`}
+              style={cardStyle}
               onClick={() => openModal(exercise)}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge className="border-2 border-black text-black bg-white uppercase">
+                  <Badge className="border-2 border-black text-black bg-white uppercase rounded-none font-bold">
                     {exercise.level}
                   </Badge>
-                  <Badge className={getTopicColor(exercise.topic)}>
+                  <Badge className={getTopicColor(exercise.topic) + " rounded-none font-bold"}>
                     {exercise.topic}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl font-extrabold text-black">
+                <CardTitle className="text-xl font-extrabold text-black uppercase">
                   {exercise.title}
                 </CardTitle>
-                <CardDescription className="text-black text-base">
+                <CardDescription className="text-black text-base font-bold uppercase">
                   {exercise.description}
                 </CardDescription>
               </CardHeader>
@@ -314,23 +316,23 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
         </div>
         {/* Modal */}
         <Dialog open={!!selectedExercise} onOpenChange={closeModal}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto border-2 border-black rounded-none shadow-none">
             {selectedExercise && (
               <div className="bg-white border-2 border-black p-6 space-y-6 rounded-none">
                 {/* Header */}
                 <DialogHeader className="mb-4">
                   <div className="flex items-center gap-3 mb-2">
-                    <Badge className="border-2 border-black bg-white text-black uppercase">
+                    <Badge className="border-2 border-black bg-white text-black uppercase rounded-none font-bold">
                       {selectedExercise.level}
                     </Badge>
-                    <Badge className={getTopicColor(selectedExercise.topic)}>
+                    <Badge className={getTopicColor(selectedExercise.topic) + " rounded-none font-bold"}>
                       {selectedExercise.topic}
                     </Badge>
                   </div>
-                  <DialogTitle className="text-3xl font-extrabold text-black">
+                  <DialogTitle className="text-3xl font-extrabold text-black uppercase">
                     {selectedExercise.title}
                   </DialogTitle>
-                  <DialogDescription className="text-lg text-black">
+                  <DialogDescription className="text-lg text-black font-bold uppercase">
                     {selectedExercise.description}
                   </DialogDescription>
                 </DialogHeader>
@@ -342,7 +344,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                   <div className="flex items-center gap-4 mb-4">
                     <Button
                       onClick={toggleAudio}
-                      className="bg-black text-white border-2 border-black rounded-none px-5 py-2 text-lg flex items-center gap-2"
+                      className="bg-black text-white border-2 border-black rounded-none px-5 py-2 text-lg flex items-center gap-2 font-bold"
                     >
                       {isPlaying ? (
                         <Pause className="h-5 w-5" />
@@ -351,7 +353,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                       )}
                       {isPlaying ? "Pause" : "Play Audio"}
                     </Button>
-                    <div className="flex items-center gap-2 text-base text-black font-medium">
+                    <div className="flex items-center gap-2 text-base text-black font-bold">
                       <Volume2 className="h-4 w-4" />
                       <span>Click to listen</span>
                     </div>
@@ -359,7 +361,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                       variant="outline"
                       size="sm"
                       onClick={() => setShowTranscript(!showTranscript)}
-                      className="border-2 border-black text-black bg-white rounded-none ml-4"
+                      className="border-2 border-black text-black bg-white rounded-none ml-4 font-bold"
                     >
                       {showTranscript ? "Hide" : "Show"} Transcript
                     </Button>
@@ -375,10 +377,10 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                   </audio>
                   {showTranscript && (
                     <div className="mt-4 p-4 bg-[#fef3c7] border-2 border-black rounded-none">
-                      <h4 className="font-semibold text-black mb-2">
+                      <h4 className="font-extrabold text-black mb-2 uppercase">
                         Transcript:
                       </h4>
-                      <p className="text-black leading-relaxed">
+                      <p className="text-black leading-relaxed font-medium">
                         {selectedExercise.transcript}
                       </p>
                     </div>
@@ -386,7 +388,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                 </div>
                 {/* Questions */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-black uppercase">
+                  <h3 className="text-xl font-extrabold text-black uppercase">
                     Richtig oder Falsch? (True or False?)
                   </h3>
                   {selectedExercise.questions.map((q, index) => {
@@ -395,7 +397,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                     return (
                       <div
                         key={index}
-                        className={`p-4 border-2 rounded-none ${
+                        className={`p-4 border-2 rounded-none font-bold ${
                           showResults
                             ? isCorrect
                               ? "bg-green-200 border-black"
@@ -404,7 +406,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                         }`}
                       >
                         <div className="flex items-center justify-between mb-3">
-                          <p className="font-bold text-black">{q.question}</p>
+                          <p className="font-extrabold text-black">{q.question}</p>
                           {showResults && (
                             <div className="flex items-center gap-2">
                               {isCorrect ? (
@@ -420,7 +422,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                             size="sm"
                             onClick={() => handleAnswer(index, true)}
                             disabled={showResults}
-                            className={`rounded-none border-2 transition-colors duration-200 ${
+                            className={`rounded-none border-2 transition-colors duration-200 font-bold ${
                               userAnswers[index] === true
                                 ? "bg-black text-white border-black"
                                 : "bg-white text-black border-black hover:bg-cyan-400 hover:text-white"
@@ -432,7 +434,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                             size="sm"
                             onClick={() => handleAnswer(index, false)}
                             disabled={showResults}
-                            className={`rounded-none border-2 transition-colors duration-200 ${
+                            className={`rounded-none border-2 transition-colors duration-200 font-bold ${
                               userAnswers[index] === false
                                 ? "bg-black text-white border-black"
                                 : "bg-white text-black border-black hover:bg-cyan-400 hover:text-white"
@@ -456,7 +458,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                     <Button
                       onClick={checkAnswers}
                       disabled={userAnswers.some((answer) => answer === null)}
-                      className="bg-black text-white border-2 border-black rounded-none"
+                      className="bg-black text-white border-2 border-black rounded-none font-bold"
                     >
                       Check Answers
                     </Button>
@@ -468,7 +470,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                       </div>
                       <Button
                         onClick={resetQuiz}
-                        className="border-2 border-black text-black bg-white rounded-none"
+                        className="button border-2 border-black text-black bg-white rounded-none font-bold"
                       >
                         <RotateCcw className="h-4 w-4 mr-2" />
                         Try Again
@@ -477,7 +479,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                   )}
                   <Button
                     onClick={closeModal}
-                    className="border-2 border-black text-black bg-white rounded-none"
+                    className="button border-2 border-black text-black bg-white rounded-none font-bold"
                   >
                     Close
                   </Button>

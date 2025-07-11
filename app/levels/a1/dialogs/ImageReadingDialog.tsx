@@ -141,7 +141,7 @@ export default function ImageReadingDialog({ exercise, onClose }: Props) {
                       );
                       setShowResults(false);
                     }}
-                    className="border-2 border-black text-black bg-white rounded-none"
+                    className="button border-2 border-black text-black bg-white rounded-none"
                   >
                     <RotateCcw className="h-4 w-4 mr-2" />
                     Try Again
@@ -150,7 +150,7 @@ export default function ImageReadingDialog({ exercise, onClose }: Props) {
               )}
               <Button
                 onClick={onClose}
-                className="border-2 border-black text-black bg-white rounded-none"
+                className="button border-2 border-black text-black bg-white rounded-none"
               >
                 Close
               </Button>
