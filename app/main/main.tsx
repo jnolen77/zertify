@@ -190,7 +190,7 @@ export function Main() {
       {/* Coming soon footer */}
       <div className="text-center">
         <h2 className="text-2xl font-bold text-black mt-12 mb-6">
-          More Levels Coming Soon!
+          Stay Tuned! More Levels Coming Soon!
         </h2>
       </div>
     </div>
