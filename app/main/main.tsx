@@ -1,5 +1,7 @@
-import { GraduationCap, Star, Sparkle, Gem, Lock } from "lucide-react";
+import { GraduationCap, Star, Sparkle, Gem, Lock, Book } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "~/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 
 // import { ReactNode } from "react";
 const levels = [
@@ -41,9 +43,26 @@ const levels = [
   },
 ];
 
+const basics = [
+  {
+    title: "German Alphabet",
+    description: "Learn the German alphabet and pronunciation rules.",
+  href: "/levels/a1/alphabet"},
+    {
+    title: "German Nouns",
+    description: "Learn the German alphabet and pronunciation rules.",
+  href: "/levels/a1/nouns"},
+    {
+    title: "German Question Words",
+    description: "Learn the German alphabet and pronunciation rules.",
+  href: "/levels/a1/questions/was-question-page"},
+
+]
+
 const cardClass =
   "relative border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1";
-
+ const cardClassLarge =
+    "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black]";
 // type MainProps = {
 //   children: ReactNode;
 // };
@@ -116,6 +135,103 @@ export function Main() {
             }
           )}
         </div>
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-black mt-12 mb-6">
+              More Levels Coming Soon!
+            </h2>
+          </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl">
+
+  <Link to={"/levels/a1/questions/was-question-page"} className="no-underline">
+  
+          <Card  className={cardClass}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 border-2 border-black">
+                      <Book className="h-6 w-6 text-black" />
+                    </div>
+                    <CardTitle>Questions</CardTitle>
+                  </div>
+                  <CardDescription>Question Words</CardDescription>
+                </CardHeader>
+                <CardContent>
+                   <div className="space-y-2 mb-4">
+                    <p className="text-sm font-bold text-black mb-2">
+                      
+                    </p>
+                    
+                  </div> 
+                 
+                </CardContent>
+              </Card>
+  </Link>
+              <Card  className={cardClassLarge}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 border-2 border-black">
+                      <Book className="h-6 w-6 text-black" />
+                    </div>
+                    <CardTitle>Basics</CardTitle>
+                  </div>
+                  <CardDescription>Basics Info</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-sm font-bold text-black mb-2">
+                      Topics include:
+                    </p>
+                    
+                  </div>
+                  <Button
+                    className="w-full bg-black text-[#fef9c3] hover:bg-yellow-900 font-bold border-2 border-black cursor-pointer"
+                    
+                  >
+                    Explore Nouns
+                  </Button>
+                </CardContent>
+              </Card>
+              <Card  className={cardClassLarge}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 border-2 border-black">
+                      <Book className="h-6 w-6 text-black" />
+                    </div>
+                    <CardTitle>Basics</CardTitle>
+                  </div>
+                  <CardDescription>Basics Info</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-sm font-bold text-black mb-2">
+                      Topics include:
+                    </p>
+                    
+                  </div>
+                  <Button
+                    className="w-full bg-black text-[#fef9c3] hover:bg-yellow-900 font-bold border-2 border-black cursor-pointer"
+                    
+                  >
+                    Explore Nouns
+                  </Button>
+                </CardContent>
+              </Card>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
     </>
   );

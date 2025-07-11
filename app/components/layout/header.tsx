@@ -8,7 +8,7 @@ export default function Header() {
       <div className="flex items-center">
         <span className="font-extrabold text-2xl tracking-tight uppercase select-none">
           
-          <img src="/images/zert-pro-logo.png" alt="Logo" className="inline-block mr-2 h-36 w-full" />
+          <img src="/images/zert-pro-logo-blue.png" alt="Logo" className="inline-block mr-2 h-36 w-full" />
           {/* <span className="border-2 border-black px-2 py-1 bg-[#fef9c3]">
             Deutsch
           </span> */}
