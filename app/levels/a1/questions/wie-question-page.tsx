@@ -7,58 +7,61 @@ import { Button } from "../../../components/ui/button"
 import { Badge } from "../../../components/ui/badge"
 import { Link } from "react-router-dom"
 
-interface WasQuestionPageProps {
+interface WoQuestionPageProps {
   onBack: () => void
 }
 
-export default function WasQuestionPage({ onBack }: WasQuestionPageProps) {
+export default function WoQuestionPage({ onBack }: WoQuestionPageProps) {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const [showResult, setShowResult] = useState(false)
   const [score, setScore] = useState(0)
 
-  const questions = [
-    {
-      id: 1,
-      question: "Was ist das?",
-      image: "/placeholder.svg?height=200&width=200&text=🏠",
-      options: ["das Haus", "der Baum", "das Auto", "die Katze"],
-      correct: "das Haus",
-      translation: "What is this?",
-    },
-    {
-      id: 2,
-      question: "Was machst du gern?",
-      image: "/placeholder.svg?height=200&width=200&text=📚",
-      options: ["Ich lese gern", "Ich koche gern", "Ich schwimme gern", "Ich tanze gern"],
-      correct: "Ich lese gern",
-      translation: "What do you like to do?",
-    },
-    {
-      id: 3,
-      question: "Was isst du zum Frühstück?",
-      image: "/placeholder.svg?height=200&width=200&text=🍞",
-      options: ["Brot", "Pizza", "Suppe", "Eis"],
-      correct: "Brot",
-      translation: "What do you eat for breakfast?",
-    },
-    {
-      id: 4,
-      question: "Was trinkst du gern?",
-      image: "/placeholder.svg?height=200&width=200&text=☕",
-      options: ["Kaffee", "Bier", "Milch", "Saft"],
-      correct: "Kaffee",
-      translation: "What do you like to drink?",
-    },
-    {
-      id: 5,
-      question: "Was ist dein Hobby?",
-      image: "/placeholder.svg?height=200&width=200&text=⚽",
-      options: ["Fußball spielen", "Kochen", "Lesen", "Musik hören"],
-      correct: "Fußball spielen",
-      translation: "What is your hobby?",
-    },
-  ]
+const questions = [
+  {
+    id: 1,
+    question: "Wie heißt du?",
+    image: "/placeholder.svg?height=200&width=200&text=📝",
+    options: ["Ich heiße Anna", "Ich bin acht", "In Berlin", "Mit dem Auto"],
+    correct: "Ich heiße Anna",
+    translation: "What is your name?",
+  },
+  {
+    id: 2,
+    question: "Wie alt bist du?",
+    image: "/placeholder.svg?height=200&width=200&text=🎂",
+    options: ["Ich bin acht", "Am Montag", "Im Garten", "Mit meiner Mutter"],
+    correct: "Ich bin acht",
+    translation: "How old are you?",
+  },
+  {
+    id: 3,
+    question: "Wie geht es dir?",
+    image: "/placeholder.svg?height=200&width=200&text=😊",
+    options: ["Gut", "Im Haus", "Auf dem Tisch", "In der Schule"],
+    correct: "Gut",
+    translation: "How are you?",
+  },
+  {
+    id: 4,
+    question: "Wie kommst du zur Schule?",
+    image: "/placeholder.svg?height=200&width=200&text=🚌",
+    options: ["Mit dem Bus", "Um 8 Uhr", "Im Park", "Am Abend"],
+    correct: "Mit dem Bus",
+    translation: "How do you get to school?",
+  },
+  {
+    id: 5,
+    question: "Wie ist das Wetter?",
+    image: "/placeholder.svg?height=200&width=200&text=☀️",
+    options: ["Sonnig", "Im Zimmer", "Mit Milch", "Am Wochenende"],
+    correct: "Sonnig",
+    translation: "How is the weather?",
+  },
+];
+
+
+
 
   const currentQ = questions[currentQuestion]
 
