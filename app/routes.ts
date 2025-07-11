@@ -5,5 +5,6 @@ export default [
     route("levels/a1", "levels/a1/a1-modules.tsx"),
     route("levels/a1/questions/was-question-page", "levels/a1/questions/was-question-page.tsx"),
     route("levels/a1/question-words-page", "levels/a1/question-words-page.tsx"),
+     route("levels/a1/verbs-page", "levels/a1/verbs-page.tsx"),
 
 ] satisfies RouteConfig;

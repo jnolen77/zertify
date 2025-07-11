@@ -1,18 +1,18 @@
 // main.tsx or routes.tsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../routes/home";
-import Index from "../routes/index";
+// import Index from "../routes/index";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />, // <-- layout
-    children: [
-      {
-        index: true, // <-- matches "/"
-        element: <Index />,
-      },
-    ],
+    // children: [
+    //   {
+    //     index: true, // <-- matches "/"
+    //     element: <Index />,
+    //   },
+    // ],
   },
 ]);
 

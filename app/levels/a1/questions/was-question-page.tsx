@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ArrowLeft,
   MessageSquareIcon as MessageSquareQuestion,
@@ -15,11 +16,9 @@ interface Question {
   englishA: string;
 }
 
-interface WasQuestionPageProps {
-  onBack?: () => void;
-}
 
-export default function WasQuestionPage({ onBack }: WasQuestionPageProps) {
+
+export default function WasQuestionPage() {
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(
     null
   );
@@ -146,13 +145,17 @@ export default function WasQuestionPage({ onBack }: WasQuestionPageProps) {
     <div className="p-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
+        <Link to="/levels/a1/question-words-page" className="no-underline">
         <Button
-          onClick={onBack}
+          
           className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Question Words
         </Button>
+        
+        </Link>
+       
 
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
