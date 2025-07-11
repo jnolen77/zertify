@@ -13,6 +13,8 @@ import type { HeadlineMatchingExercise } from "../exercises/headlineMatchingExer
 interface HeadlineMatchingCardProps {
   exercise: HeadlineMatchingExercise;
   onClick: (exercise: HeadlineMatchingExercise) => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const cardClass =
@@ -21,9 +23,13 @@ const cardClass =
 export default function HeadlineMatchingCard({
   exercise,
   onClick,
+  className = "",
+  style = {},
 }: HeadlineMatchingCardProps) {
   return (
-    <Card className={cardClass} onClick={() => onClick(exercise)}>
+    <Card className={`border-2 border-black rounded-none p-4 shadow-none ${className}`}
+      style={style}
+      onClick={() => onClick?.(exercise)}>
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between mb-2">
           <Badge className="border-2 border-black text-black bg-white">

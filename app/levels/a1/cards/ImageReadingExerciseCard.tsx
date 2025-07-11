@@ -12,6 +12,8 @@ import type { ImageReadingExercise } from "../exercises/imageReadingExercise";
 interface ImageReadingExerciseCardProps {
   exercise: ImageReadingExercise;
   onClick: (exercise: ImageReadingExercise) => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const cardClass =
@@ -20,9 +22,13 @@ const cardClass =
 export default function ReadingExerciseCard({
   exercise,
   onClick,
+  className = "",
+  style = {},
 }: ImageReadingExerciseCardProps) {
   return (
-    <Card className={cardClass} onClick={() => onClick(exercise)}>
+     <Card className={`border-2 border-black rounded-none p-4 shadow-none ${className}`}
+      style={style}
+      onClick={() => onClick?.(exercise)}>
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between mb-2">
           <Badge className="border-2 border-black text-black bg-white">

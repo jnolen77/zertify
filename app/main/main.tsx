@@ -44,6 +44,26 @@ const levels = [
     locked: true,
     color: "bg-[#fbcfe8]",
   },
+  {
+    name: "C1",
+    icon: Gem,
+    description:
+      "Advance your skills: prep for professional and academic language use.",
+    modules: "15 modules • Upper Intermediate",
+    href: "/c1",
+    locked: true,
+    color: "bg-[#fbcfe8]",
+  },
+  {
+    name: "C2",
+    icon: Gem,
+    description:
+      "Advance your skills: prep for professional and academic language use.",
+    modules: "15 modules • Upper Intermediate",
+    href: "/c2",
+    locked: true,
+    color: "bg-[#fbcfe8]",
+  },
 ];
 
 export function Main() {
@@ -60,7 +80,7 @@ export function Main() {
       </h2>
 
       {/* LEVEL CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-5xl mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl mb-10">
         {levels.map(({ name, icon: Icon, description, modules, href, locked, color }) => {
           const card = (
             <Card
@@ -188,11 +208,11 @@ export function Main() {
       </div>
 
       {/* Coming soon footer */}
-      <div className="text-center">
+      {/* <div className="text-center">
         <h2 className="text-2xl font-bold text-black mt-12 mb-6">
           Stay Tuned! More Levels Coming Soon!
         </h2>
-      </div>
+      </div> */}
     </div>
   );
 }
