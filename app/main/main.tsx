@@ -69,7 +69,9 @@ const cardClass =
 
 export function Main() {
   return (
+    
     <>
+    
       <div className="flex flex-col items-center justify-start bg-[#fef9c6] px-4 py-16">
         <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 uppercase text-center">
           German certificate training

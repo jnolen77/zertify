@@ -61,7 +61,7 @@ export default function Sidebar() {
         {navItems.map(({ label, icon: Icon, href }) => (
           <Link
             to={href || "#"}
-            className={`flex items-center gap-3 px-4 py-3 text-lg font-bold border-2 border-black bg-[#fef9c3] rounded-lg hover:bg-[#fde047] transition
+            className={`flex items-center gap-3 px-2 py-2 font-bold border-2 border-black bg-[#fef9c3] rounded-lg hover:bg-[#fde047] transition
                 ${collapsed ? "justify-center px-0" : ""}`}
             key={label}
           >
