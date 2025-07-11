@@ -68,7 +68,7 @@ const levels = [
 
 export function Main() {
   return (
-    <div className="flex flex-col items-center justify-start bg-[#fef9c6] px-4 py-16 min-h-screen">
+    <div className="flex flex-col items-center justify-start bg-[#f0f9ff] px-4 py-16 min-h-screen">
       <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 uppercase text-center">
         German Certificate Training
       </h1>

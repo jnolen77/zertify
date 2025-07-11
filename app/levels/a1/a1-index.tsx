@@ -38,7 +38,7 @@ export default function A1Index({ onNavigate, onBack }: GermanA1AppProps) {
       icon: Book,
       moduleInfo: "8 Modules • True/False",
       color: "bg-[#e0e7ff]",
-      href: "/reading-page",
+      // href: "/reading-page",
     },
     {
       title: "Listening",
@@ -73,7 +73,7 @@ export default function A1Index({ onNavigate, onBack }: GermanA1AppProps) {
       <div className="max-w-7xl mx-auto">
         <Button
           onClick={() => router("/")}
-          className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
+          className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-[#38bdf8] hover:text-white transition"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Homepage

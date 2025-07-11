@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <Links />
       </head>
-      <body className="bg-[#fef9c6]">
+      <body className="bg-[#f0f9ff]">
         <Header />
 
         {/* Flex layout for sidebar + main content */}

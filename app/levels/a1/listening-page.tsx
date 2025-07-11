@@ -261,7 +261,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
         <div className="mb-8">
           <Button
             onClick={onBack}
-            className="mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold hover:bg-black hover:text-white transition"
+            className="button mb-6 bg-white text-black border-2 border-black rounded-none px-4 py-2 font-bold  transition"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to German A1
@@ -470,7 +470,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                       </div>
                       <Button
                         onClick={resetQuiz}
-                        className="border-2 border-black text-black bg-white rounded-none font-bold"
+                        className="button border-2 border-black text-black bg-white rounded-none font-bold"
                       >
                         <RotateCcw className="h-4 w-4 mr-2" />
                         Try Again
@@ -479,7 +479,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                   )}
                   <Button
                     onClick={closeModal}
-                    className="border-2 border-black text-black bg-white rounded-none font-bold"
+                    className="button border-2 border-black text-black bg-white rounded-none font-bold"
                   >
                     Close
                   </Button>
