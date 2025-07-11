@@ -39,7 +39,7 @@ export default function Sidebar() {
       <button
         aria-label="Collapse sidebar"
         onClick={() => setCollapsed((c) => !c)}
-        className="self-end m-2 p-2 rounded-full border-2 border-black bg-[#fef9c3] hover:bg-[#FFB5A7] focus:outline-none transition"
+        className="self-end m-2 p-2 rounded-full border-2 border-black bg-[#fef9c3] hover:bg-[#fde047] focus:outline-none transition"
       >
         <span className="sr-only">Toggle sidebar</span>
         <svg
@@ -61,11 +61,11 @@ export default function Sidebar() {
         {navItems.map(({ label, icon: Icon, href }) => (
           <Link
             to={href || "#"}
-            className={`flex items-center gap-3 px-4 py-3 text-lg font-bold border-2 border-black bg-[#fef9c3] rounded-lg hover:bg-[#FFB5A7] transition
+            className={`flex items-center gap-3 px-4 py-3 text-lg font-bold border-2 border-black bg-[#fef9c3] rounded-lg hover:bg-[#fde047] transition
                 ${collapsed ? "justify-center px-0" : ""}`}
             key={label}
           >
-            <Icon className="w-6 h-6" color="blue" />
+            <Icon className="w-6 h-6" color="#2326cf" />
             {!collapsed && <span>{label}</span>}
           </Link>
         ))}
