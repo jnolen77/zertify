@@ -71,9 +71,9 @@ export default function WritingPage({ onBack }: WritingPageProps) {
   const writingExercises: WritingExercise[] = [
     {
       id: 1,
-      title: "Personalausweis Antrag",
+      title: "Ausweis Antrag",
       level: "A1",
-      topic: "Persönliche Daten",
+      topic: "Daten",
       description: "Fill out a personal ID application form",
       type: "form",
       formFields: [
@@ -154,7 +154,7 @@ export default function WritingPage({ onBack }: WritingPageProps) {
     },
     {
       id: 2,
-      title: "Hotelreservierung",
+      title: "Reservierung",
       level: "A1",
       topic: "Reisen",
       description: "Complete a hotel reservation form",
@@ -231,7 +231,7 @@ export default function WritingPage({ onBack }: WritingPageProps) {
     },
     {
       id: 3,
-      title: "Bewerbungsformular",
+      title: "Bewerbung",
       level: "A1",
       topic: "Arbeit",
       description: "Fill out a job application form",
@@ -623,7 +623,7 @@ export default function WritingPage({ onBack }: WritingPageProps) {
     },
     {
       id: 8,
-      title: "Vereinsmitgliedschaft",
+      title: "Vereinsmitglied",
       level: "A1",
       topic: "Freizeit",
       description: "Join a sports club membership form",
@@ -701,7 +701,7 @@ export default function WritingPage({ onBack }: WritingPageProps) {
     },
     {
       id: 9,
-      title: "Geburtstagseinladung E-Mail",
+      title: "Geburtstags E-Mail",
       level: "A1",
       topic: "Kommunikation",
       description: "Write an email inviting someone to a birthday party",
@@ -1005,11 +1005,11 @@ Anna`,
     );
   };
   const getTopicColor = () =>
-    "border-2 border-black bg-[#facc15] text-black uppercase font-bold rounded-none";
+    "border-2 border-black bg-[#fff] text-black font-bold rounded-md";
 
   // Neobrutalist card style
   const cardClass =
-    "cursor-pointer border-2 border-black bg-[#fff] hover:bg-[#fde047] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1 rounded-none";
+    "cursor-pointer border-2 border-black bg-[#fce591] hover:bg-[#38bdf8] transition-all duration-200 shadow-none hover:shadow-[4px_4px_0_0_black] hover:-translate-x-1 hover:-translate-y-1 rounded-none";
 
   return (
     <div className="bg-[#f0f9ff] min-h-screen p-6">
@@ -1049,12 +1049,10 @@ Anna`,
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge className="border-2 border-black text-black bg-white uppercase font-bold rounded-none">
+                  <Badge className="border-2 border-black text-black bg-white uppercase font-bold rounded-md">
                     {exercise.level}
                   </Badge>
-                  <Badge className={getTopicColor()}>
-                    {exercise.topic}
-                  </Badge>
+                  <Badge className={getTopicColor()}>{exercise.topic}</Badge>
                 </div>
                 <CardTitle className="text-xl font-extrabold text-black uppercase">
                   {exercise.title}
