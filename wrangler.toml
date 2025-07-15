@@ -1,0 +1,6 @@
+name = "your-app-name"
+type = "javascript"
+main = "build/server/index.js"  # <-- Your SSR Worker entry
+compatibility_date = "2025-07-15"
+
+# Optional: environment variables, bindings, etc.
