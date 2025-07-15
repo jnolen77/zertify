@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import {
   ArrowLeft,
@@ -54,13 +53,12 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
   const [showTranscript, setShowTranscript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
- 
   const listeningExercises: ListeningExercise[] = [
     {
       id: 1,
       title: "Sich vorstellen",
       level: "A1",
-      topic: "Persönliche Informationen",
+      topic: "Form",
       description: "Listen to someone introducing themselves",
       audioUrl: "/placeholder-audio.mp3",
       transcript:
@@ -88,7 +86,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
     },
     {
       id: 3,
-      title: "Wettervorhersage",
+      title: "Wetter",
       level: "A1",
       topic: "Wetter",
       description: "Listen to a simple weather forecast",
@@ -241,7 +239,7 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
 
   // Pastel badge
   const getTopicColor = (topic: string) =>
-    "border-2 border-black bg-[#facc15] text-black uppercase";
+    "border-2 border-black bg-[#facc15] text-black";
 
   const correctAnswers = selectedExercise
     ? userAnswers.filter(
@@ -276,7 +274,8 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
               </h1>
             </div>
             <p className="text-lg text-black font-medium max-w-3xl mx-auto">
-              Improve your German listening comprehension with these A1 level audio exercises.
+              Improve your German listening comprehension with these A1 level
+              audio exercises.
             </p>
           </div>
         </div>
@@ -285,16 +284,20 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
           {listeningExercises.map((exercise) => (
             <Card
               key={exercise.id}
-              className={`${cardClass} bg-[#e0e7ff]`}
+              className={`${cardClass} bg-[#aaf4fb]`}
               style={cardStyle}
               onClick={() => openModal(exercise)}
             >
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <Badge className="border-2 border-black text-black bg-white uppercase rounded-none font-bold">
+                  <Badge className="border-2 border-black text-black bg-white uppercase rounded-md font-bold">
                     {exercise.level}
                   </Badge>
-                  <Badge className={getTopicColor(exercise.topic) + " rounded-none font-bold"}>
+                  <Badge
+                    className={
+                      getTopicColor(exercise.topic) + " rounded-md font-bold"
+                    }
+                  >
                     {exercise.topic}
                   </Badge>
                 </div>
@@ -325,7 +328,12 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                     <Badge className="border-2 border-black bg-white text-black uppercase rounded-none font-bold">
                       {selectedExercise.level}
                     </Badge>
-                    <Badge className={getTopicColor(selectedExercise.topic) + " rounded-none font-bold"}>
+                    <Badge
+                      className={
+                        getTopicColor(selectedExercise.topic) +
+                        " rounded-none font-bold"
+                      }
+                    >
                       {selectedExercise.topic}
                     </Badge>
                   </div>
@@ -406,7 +414,9 @@ export default function ListeningPage({ onBack }: ListeningPageProps) {
                         }`}
                       >
                         <div className="flex items-center justify-between mb-3">
-                          <p className="font-extrabold text-black">{q.question}</p>
+                          <p className="font-extrabold text-black">
+                            {q.question}
+                          </p>
                           {showResults && (
                             <div className="flex items-center gap-2">
                               {isCorrect ? (
