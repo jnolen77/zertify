@@ -5,6 +5,12 @@ import { ArrowLeft, Book } from "lucide-react";
 import { Button } from "../../components/ui/button";
 
 import {
+  Modal,
+  ModalTrigger,
+  ModalContent,
+} from "../../components/ui/definitionDialog";
+
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -83,16 +89,32 @@ const renderTextWithTranslations = (text: string) => {
       cleanWord.length > 1
     ) {
       return (
-        <Popover key={index}>
-          <PopoverTrigger asChild>
+        // Use Modal for definitions
+        // Uncomment Popover if you want to use it instead
+
+        <Modal key={index}>
+          <ModalTrigger asChild>
             <span className="cursor-help hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200 rounded px-0.5">
               {word}
             </span>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto p-2 text-sm">
+          </ModalTrigger>
+          <ModalContent>
+            <p>This is the content inside the modal.</p>
+            <div className="font-medium text-slate-800">{word}</div>
             <div className="font-medium text-slate-800">{translation}</div>
-          </PopoverContent>
-        </Popover>
+          </ModalContent>
+        </Modal>
+
+        // <Popover key={index}>
+        //   <PopoverTrigger asChild>
+        //     <span className="cursor-help hover:bg-blue-100 hover:text-blue-800 transition-colors duration-200 rounded px-0.5">
+        //       {word}
+        //     </span>
+        //   </PopoverTrigger>
+        //   <PopoverContent className="w-auto p-2 text-sm">
+        //     <div className="font-medium text-slate-800">{translation}</div>
+        //   </PopoverContent>
+        // </Popover>
       );
     }
 
