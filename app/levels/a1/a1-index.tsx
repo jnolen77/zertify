@@ -93,7 +93,7 @@ export default function A1Index({ onNavigate, onBack }: GermanA1AppProps) {
           <h2 className="text-2xl font-bold text-black mb-6 text-center uppercase">
             Choose Your Skill Area
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
             {skillAreas.map(
               ({ title, description, icon: Icon, moduleInfo, color }) => (
                 <Card
@@ -110,16 +110,16 @@ export default function A1Index({ onNavigate, onBack }: GermanA1AppProps) {
                     <div className="mx-auto mb-4 p-3 border-2 border-black rounded-none bg-white">
                       <Icon className="h-8 w-8 text-black" />
                     </div>
-                    <CardTitle className="text-2xl font-extrabold uppercase text-black">
+                    <CardTitle className="text-2xl md:text-5xl font-extrabold uppercase text-black">
                       {title}
                     </CardTitle>
-                    <CardDescription className="text-black font-bold uppercase">
+                    <CardDescription className="text-black md:text-2xl font-bold uppercase">
                       {description}
                     </CardDescription>
                   </CardHeader>
 
                   <CardContent className="pt-0">
-                    <div className="flex items-center gap-2 text-sm text-black font-medium justify-center">
+                    <div className="flex items-center gap-2 text-sm md:text-xl text-black font-medium justify-center">
                       <Book className="h-4 w-4" />
                       <span>{moduleInfo}</span>
                     </div>

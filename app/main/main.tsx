@@ -69,10 +69,10 @@ const levels = [
 export function Main() {
   return (
     <div className="flex flex-col items-center justify-start bg-[#f0f9ff] px-4 py-16 min-h-screen">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-4 uppercase text-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold text-black mb-4 uppercase text-center">
         German Certificate Training
       </h1>
-      <h2 className="text-lg md:text-2xl text-black font-medium mb-10 max-w-2xl text-center">
+      <h2 className="text-lg md:text-4xl text-black font-medium mb-10 max-w-2xl text-center">
         Prepare for your official German language certificate.
         <br />
         <span className="font-bold">Choose your level below</span> to start
@@ -80,13 +80,13 @@ export function Main() {
       </h2>
 
       {/* LEVEL CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid gap-8 w-full max-w-5xl mb-10">
         {levels.map(({ name, icon: Icon, description, modules, href, locked, color }) => {
           const card = (
             <Card
               className={`relative border-2 border-black rounded-none shadow-none transition-all duration-150 ${color} ${locked ? "opacity-60 pointer-events-none" : "hover:bg-[#38bdf8] hover:text-white cursor-pointer"}`}
               style={{
-                minHeight: "380px",
+                minHeight: "280px",
                 boxShadow: "4px 4px 0 0 #000",
               }}
             >
@@ -94,7 +94,7 @@ export function Main() {
                 <div className="mb-3 p-3 border-2 border-black bg-[#2326cf] rounded-none">
                   <Icon className="w-10 h-10 text-[#fef9c6]" />
                 </div>
-                <CardTitle className="text-2xl font-extrabold uppercase text-black">{name}</CardTitle>
+                <CardTitle className="text-2xl md:text-5xl font-extrabold uppercase text-black">{name}</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col items-center flex-grow">
                 {locked ? (
@@ -103,8 +103,8 @@ export function Main() {
                   </div>
                 ) : (
                   <>
-                    <p className="text-black text-center mb-4">{description}</p>
-                    <span className="text-sm font-bold text-black">{modules}</span>
+                    <p className="text-black text-center md:text-4xl mb-4">{description}</p>
+                    <span className="text-sm font-bold text-black md:text-3xl">{modules}</span>
                   </>
                 )}
               </CardContent>
